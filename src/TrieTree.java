@@ -29,7 +29,8 @@ public class TrieTree {
     }
 
     public boolean searchWord(String word) throws NullPointerException {
-        if (root == null) throw new NullPointerException("Empty tree");
+        if (root == null)
+            throw new NullPointerException("Empty tree");
         Node iterator = root;
         char[] chars = word.toCharArray();
         for (char c : chars) {
