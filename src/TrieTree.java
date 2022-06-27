@@ -44,7 +44,7 @@ public class TrieTree {
             return;
         }
         if (!searchWord(word)) {
-            System.out.println("Word not found");
+            System.out.println("Word doesn't exist");
             return;
         }
         char[] chars = word.toCharArray();
@@ -185,18 +185,10 @@ class Node {
     }
 }
 
-class man {
+class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         TrieTree t = new TrieTree();
-        for (int i = 0; i < 10; i++) {
-            t.insertWord(scanner.nextLine());
-            t.insertWord(scanner.nextLine());
-            t.insertWord(scanner.nextLine());
-            for (String s : t.autoComplete(scanner.nextLine())) {
-                System.out.println(s);
-            }
-        }
+        Scanner scanner = new Scanner(System.in);
         scanner.close();
     }
 }
