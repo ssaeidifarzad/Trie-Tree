@@ -189,6 +189,40 @@ class Main {
     public static void main(String[] args) {
         TrieTree t = new TrieTree();
         Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String input = scanner.nextLine();
+            String[] in = input.split(" ");
+            String word = "";
+            for (int i = 1; i < in.length-1; i++) {
+                word += in[i] + " ";
+            }
+            word+=in[in.length-1];
+
+            if (in[0].equals("insert")) {
+                t.insertWord(word);
+            }
+            else if (in[0].equals("delete")) {
+                t.deleteWord(word);
+            }
+
+            else if (in[0].equals("search")) {
+                System.out.println(t.searchWord(word));
+            }
+            else if (in[0].equals("auto-complete")) {
+                String[] result=t.autoComplete(word);
+                for (String x: result) {
+                    System.out.println(x);
+                }
+            }
+            else if (in[0].equals("exit")){
+                break;
+            }
+             else
+                 System.out.println("invalid input");
+
+        }
         scanner.close();
+
+
     }
 }
