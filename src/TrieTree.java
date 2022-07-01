@@ -202,11 +202,20 @@ class Main {
                 t.insertWord(word);
             }
             else if (in[0].equals("delete")) {
-                t.deleteWord(word);
+                try {
+                    t.deleteWord(word);
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
             }
-
             else if (in[0].equals("search")) {
-                System.out.println(t.searchWord(word));
+                try {
+                    System.out.println(t.searchWord(word));
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
             }
             else if (in[0].equals("auto-complete")) {
                 String[] result=t.autoComplete(word);
