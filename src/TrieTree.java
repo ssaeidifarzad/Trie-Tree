@@ -157,7 +157,7 @@ class Node {
         else {
             if (c >= 65 && c <= 90)
                 c += 32;
-            children[c % 26] = null;
+            children[(c + 7) % 26] = null;
         }
         childCount--;
         if (childCount == 0)
@@ -193,41 +193,34 @@ class Main {
             String input = scanner.nextLine();
             String[] in = input.split(" ");
             String word = "";
-            for (int i = 1; i < in.length-1; i++) {
+            for (int i = 1; i < in.length - 1; i++) {
                 word += in[i] + " ";
             }
-            word+=in[in.length-1];
+            word += in[in.length - 1];
 
             if (in[0].equals("insert")) {
                 t.insertWord(word);
-            }
-            else if (in[0].equals("delete")) {
+            } else if (in[0].equals("delete")) {
                 try {
                     t.deleteWord(word);
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-            }
-            else if (in[0].equals("search")) {
+            } else if (in[0].equals("search")) {
                 try {
                     System.out.println(t.searchWord(word));
-                }
-                catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-            }
-            else if (in[0].equals("auto-complete")) {
-                String[] result=t.autoComplete(word);
-                for (String x: result) {
+            } else if (in[0].equals("auto-complete")) {
+                String[] result = t.autoComplete(word);
+                for (String x : result) {
                     System.out.println(x);
                 }
-            }
-            else if (in[0].equals("exit")){
+            } else if (in[0].equals("exit")) {
                 break;
-            }
-             else
-                 System.out.println("invalid input");
+            } else
+                System.out.println("invalid input");
 
         }
         scanner.close();
